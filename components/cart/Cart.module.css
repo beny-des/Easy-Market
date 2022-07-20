@@ -1,0 +1,14 @@
+.typography {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+  }
+
+.cartGrid{
+display: flex;
+justify-content: center;
+margin-top: 10px;
+
+}
+

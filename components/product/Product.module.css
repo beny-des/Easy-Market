@@ -1,0 +1,20 @@
+.productContainer {
+  margin-bottom: 70px;
+  display: flex;
+}
+.productContainer:hover {
+  color: rgb(35, 58, 231);
+  box-shadow: 7px 7px;
+  border-radius: 2%;
+}
+
+.productCard {
+  max-width: 280px;
+  /* margin-top: 20px; */
+}
+
+.typography {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
