@@ -28,7 +28,7 @@ function Header() {
             </button>
             
               <div className={styles.dropdownContent}>
-                     <Link href="/category"><a >Category</a></Link>
+                     <Link href="/category"><a >Coming soon</a></Link>
                       <Link href="/reviews"><a>Reviews</a></Link>
                       <Link href="/link3"><a>Game Blogs</a></Link>
               </div>

@@ -67,6 +67,13 @@ const Glider = () => {
               className={styles.slideImg}
             ></img>
           </li>
+          <li className="glide__slide">
+            <img
+              src="https://res.cloudinary.com/dfpn73tnk/image/upload/v1657442141/biomutant-pc-game-steam-cover_oykkkg.jpg"
+              alt="pic"
+              className={styles.slideImg}
+            ></img>
+          </li>
         </ul>
 
         <div className="glide__arrows" data-glide-el="controls" >

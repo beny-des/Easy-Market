@@ -17,7 +17,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useFunctions } from "../../context/FunctionsContext";
 import styles from "../cart/Cart.module.css";
 
-function Cart() {
+const Cart=()=> {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { cartItems, onAdd, onRemove, keyValues,totalCartPrice } = useFunctions();
 
@@ -40,7 +40,7 @@ function Cart() {
         onClose={() => setIsDrawerOpen(false)}
         // sx={{position:"relative"}}
       >
-        <Box p={2} width="250px" textAlign="center" role="presentation">
+        <Box p={2} width="250px" textAlign="center" role="presentation" sx={{backgroundColor:"rgba(71, 110, 168, 0.525)"}}>
           <Typography variant="h6" component="div">
             <u>Shopping Cart :</u>
           </Typography>
