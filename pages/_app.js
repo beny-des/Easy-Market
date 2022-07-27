@@ -4,18 +4,18 @@ import "../styles/Home.module.css";
 import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "@glidejs/glide/src/assets/sass/glide.theme.scss";
 import FunctionsProvider from "../context/FunctionsContext";
-
-function MyApp({ Component, pageProps }) {
-
-
+import { SessionProvider } from "next-auth/react";
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+ 
+ 
   return (
-    <FunctionsProvider>
+    <SessionProvider session={session}>
+      <FunctionsProvider>
         <Header />
 
         <Component {...pageProps} />
-
-    </FunctionsProvider>
-  
+      </FunctionsProvider>
+    </SessionProvider>
   );
 }
 

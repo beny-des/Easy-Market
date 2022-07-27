@@ -4,17 +4,16 @@
     height: 50px;
     display: flex;
     align-items: center;
-    /* background-color: rgba(71, 110, 168, 0.525); */
     background-color: rgb(0, 0, 0);
     color:white;
- 
     font-family: Arial, Helvetica, sans-serif;
+    /* position: relative; */
 }
 .cartIcon{
    display: flex;
     position: absolute;
-    right:10px;
-    
+    right:0%;
+ 
 
 }
 

@@ -1,3 +1,4 @@
+import { Button, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 
 export const FunctionsContext = React.createContext();
@@ -23,19 +24,22 @@ export default function FunctionsProvider({ children }) {
         setAllProducts(data);
         setProductsArray(data);
         setProductFilterdsArray(data);
-       setTitleSearch(data.map((product)=> {return product.title}));
+        setTitleSearch(
+          data.map((product) => {
+            return product.title;
+          })
+        );
       })
       .catch(function () {
         return "Error";
       });
   }, []);
-  
 
   useEffect(() => {
     fetch("/api/category")
       .then((result) => result.json())
       .then((data) => {
-        setCategories(data);     
+        setCategories(data);
       })
       .catch(function () {
         return "Error";
@@ -46,27 +50,23 @@ export default function FunctionsProvider({ children }) {
     fetch("/api/console")
       .then((result) => result.json())
       .then((data) => {
-        setConsoles(data);     
+        setConsoles(data);
       })
       .catch(function () {
         return "Error";
       });
   }, []);
 
-
   function gameSearch(newValue) {
-    const choosedOption = allProducts.find((item) => item.title === newValue)
-   if(choosedOption){
-    setProductFilterdsArray([choosedOption]);
+    const choosedOption = allProducts.find((item) => item.title === newValue);
+
+    if (choosedOption) {
+      setProductFilterdsArray([choosedOption]);
+    } else {
+      setProductFilterdsArray(allProducts);
+    }
+
   }
-  else{
-    setProductFilterdsArray(allProducts);
-  }
-  console.log({productsFilteredArray});
-    console.log("choosedOption", choosedOption);
-  
-  }
-  
 
   function consoleFiltering(searchOption) {
     const filteringConsole =
@@ -146,12 +146,10 @@ export default function FunctionsProvider({ children }) {
     }
   };
 
-  // search in the array for the key & reurn value.
   const keyValues = (array, prop) => {
-    const extract = array?.map((obj) => {
-      return `${obj[prop]},`;
+    return array?.map((obj) => {
+      return (`${obj[prop]} `);
     });
-    return extract;
   };
 
   return (
@@ -161,13 +159,13 @@ export default function FunctionsProvider({ children }) {
         qtyCheck: qtyCheck,
         onRemove: onRemove,
         keyValues: keyValues,
-        gameSearch:gameSearch,
-        consoleFiltering:consoleFiltering,
+        gameSearch: gameSearch,
+        consoleFiltering: consoleFiltering,
         totalCartPrice: totalCartPrice,
-        consoles:consoles,
+        consoles: consoles,
         cartItems: cartItems,
         categories: categories,
-        titleSearch:titleSearch,
+        titleSearch: titleSearch,
         allProducts: allProducts,
         setCartItems: setCartItems,
         productsArray: productsArray,

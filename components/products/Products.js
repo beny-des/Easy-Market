@@ -27,7 +27,7 @@ const Products = () => {
     consoleFiltering,
     consoles,
   } = useFunctions();
-  // const [categoryDropdown, setCategoryDropdown] = useState("");
+
 
   return (
     <>
@@ -122,43 +122,7 @@ const Products = () => {
           }}
         />
 
-        {/* <h4 style={{ color: "white" }}>Search By Category:</h4>
-        <TextField
-          select
-          // margin="dense"
-          id="standard-select-currency-native"
-          onChange={(e) => {
-            let searchOption = e.target.value;
-            categoryFiltering(searchOption);
-            setCategoryDropdown(searchOption);
-          }}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            backgroundColor: "white",
-            width: 170,
-            // height: 55,
-            maxHeight: 42,
-            color: "black",
-            borderRadius: "2px",
-            // padding: "10px",
-          }}
-          value={categoryDropdown}
-          variant="filled"
-          label="Select category"
-        >  
-       
-
-          <MenuItem value="All">All Games</MenuItem>
-          {categories.map((obj) => {
-            return (
-              <MenuItem key={obj.category} value={obj.category}>
-                {obj.category}
-              </MenuItem>
-            );
-          })}
-          ;
-        </TextField>  */}
+  
       </Grid>
 
       <Grid

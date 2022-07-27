@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
-// import Image from "next/image";
-// import { Button } from "@mui/material";
 import Glide, { Controls, Breakpoints } from "@glidejs/glide";
 import styles from "../glide/Glider.module.css";
 
 const Glider = () => {
-
-
   useEffect(() => {
     const config = {
       type: "carousel",
@@ -14,18 +10,6 @@ const Glider = () => {
       hoverpause: true,
       perView: 3,
       gap: 10,
-      // peek: {
-      //   before: 70,
-      //   after: 50,
-      // },
-      // breakpoints: {
-      //   800: {
-      //     perView: 2,
-      //   },
-      //   480: {
-      //     perView: 1,
-      //   },
-      // },
     };
     const imgGlider = () => {
       new Glide(".glide", config).mount();
@@ -76,7 +60,7 @@ const Glider = () => {
           </li>
         </ul>
 
-        <div className="glide__arrows" data-glide-el="controls" >
+        <div className="glide__arrows" data-glide-el="controls">
           <button
             className="glide__arrow glide__arrow--left"
             data-glide-dir="<"
