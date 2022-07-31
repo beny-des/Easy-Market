@@ -2,7 +2,7 @@ import styles from "../products/Products.module.css";
 import Product from "../product/Product";
 import { Card, CardMedia, Grid } from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
-import SearchBars from "../search/searchBars";
+import SearchBars from "../search/SearchBars";
 
 const Products = () => {
   const { productsFilteredArray } = useFunctions();

@@ -21,7 +21,10 @@ const GameById = (props) => {
   const { allProducts, onAdd, onRemove, keyValues, qtyCheck } = useFunctions();
 
   const gameChosen = allProducts.find((game) => game._id === GameById);
-
+//   useEffect(()=>{
+    
+//     gameChosen.media
+// },[])
   // console.log("gameChosen", gameChosen.media);
   return (
     <div className={styles.body}>
