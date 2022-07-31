@@ -29,9 +29,10 @@ const Cart=()=> {
         color="inherit"
         aria-label="logo"
         onClick={() => setIsDrawerOpen(true)}
-        
+      
       >
         <ShoppingCartIcon />
+       
       </IconButton>
 
       <Drawer

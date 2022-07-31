@@ -1,33 +1,11 @@
-import React, { useContext, useState } from "react";
 import styles from "../products/Products.module.css";
 import Product from "../product/Product";
-import Image from "next/image";
-import {
-  Autocomplete,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import { Card, CardMedia, Grid } from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
+import SearchBars from "../search/searchBars";
 
 const Products = () => {
-  const {
-    categories,
-    categoryFiltering,
-    productsFilteredArray,
-    titleSearch,
-    gameSearch,
-    consoleFiltering,
-    consoles,
-  } = useFunctions();
-
+  const { productsFilteredArray } = useFunctions();
 
   return (
     <>
@@ -40,95 +18,13 @@ const Products = () => {
         />
       </Card>
 
-      <Grid
-        container
-        spacing={12}
-        sx={{
-          marginTop: "50px",
-          marginBottom: "50px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "55px",
-          gap: 5,
-        }}
-      >
-        <h4 style={{ color: "white" }}>Search By Title:</h4>
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={titleSearch}
-          noOptionsText={"No available games"}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: 170,
-            maxHeight: 49,
-            backgroundColor: "white",
-            alignItems: "normal",
-            borderRadius: "2px",
-          }}
-          renderInput={(params) => (
-            <TextField {...params} variant="filled" label="Select Game" />
-          )}
-          onChange={(e, newValue) => {
-            gameSearch(newValue);
-          }}
-        />
-
-        {/* ================================================== */}
-        <h4 style={{ color: "white" }}>Search By Category:</h4>
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={categories.map((item) => item.category)}
-          noOptionsText={"No available games"}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: 170,
-            maxHeight: 49,
-            backgroundColor: "white",
-            borderRadius: "2px",
-          }}
-          renderInput={(params) => (
-            <TextField {...params} variant="filled" label="Select category" />
-          )}
-          onChange={(e, newValue) => {
-            categoryFiltering(newValue);
-          }}
-        />
-
-        {/* ====================================================== */}
-        <h4 style={{ color: "white" }}>Search By Console:</h4>
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={consoles.map((item) => item.console)}
-          noOptionsText={"No available games"}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: 170,
-            maxHeight: 49,
-            backgroundColor: "white",
-            borderRadius: "2px",
-          }}
-          renderInput={(params) => (
-            <TextField {...params} variant="filled" label="Select console" />
-          )}
-          onChange={(e, newValue) => {
-            consoleFiltering(newValue);
-          }}
-        />
-
-  
-      </Grid>
+      <SearchBars />
 
       <Grid
         container
         spacing={12}
-        sx={{ display: "flex", justifyContent: "center" }}
+        sx={{ display: "flex", justifyContent: "center",paddingBottom:"50px"
+      }}
       >
         {productsFilteredArray.map((product) => (
           <Product
@@ -140,7 +36,7 @@ const Products = () => {
             price={product.price}
             description={product.description}
             console={product.console}
-            q
+            sale={product.sale}
           />
         ))}
       </Grid>

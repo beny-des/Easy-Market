@@ -1,4 +1,3 @@
-import { Button, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 
 export const FunctionsContext = React.createContext();
@@ -16,14 +15,34 @@ export default function FunctionsProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [consoles, setConsoles] = useState([]);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+  const [error, setError] = useState(false);
+  
+  
+  const func = () => {
+    fetch('url',{
+      method: 'post',
+      body:{
+        user: 'id',
+        cart:{
+          products: [],
+          sum: '400$'
+        }
+      }
+    })
+  }
+
 
   useEffect(() => {
+    setLoadingSpinner(true);
+    setError(false);
     fetch("/api/product")
       .then((result) => result.json())
       .then((data) => {
         setAllProducts(data);
         setProductsArray(data);
         setProductFilterdsArray(data);
+        setLoadingSpinner(false);
         setTitleSearch(
           data.map((product) => {
             return product.title;
@@ -31,7 +50,9 @@ export default function FunctionsProvider({ children }) {
         );
       })
       .catch(function () {
-        return "Error";
+        setError(true);
+        setLoadingSpinner(false);
+
       });
   }, []);
 
@@ -56,6 +77,9 @@ export default function FunctionsProvider({ children }) {
         return "Error";
       });
   }, []);
+
+
+
 
   function gameSearch(newValue) {
     const choosedOption = allProducts.find((item) => item.title === newValue);
@@ -155,11 +179,13 @@ export default function FunctionsProvider({ children }) {
   return (
     <FunctionsContext.Provider
       value={{
+        error:error,
         onAdd: onAdd,
         qtyCheck: qtyCheck,
         onRemove: onRemove,
         keyValues: keyValues,
         gameSearch: gameSearch,
+        loadingSpinner:loadingSpinner,
         consoleFiltering: consoleFiltering,
         totalCartPrice: totalCartPrice,
         consoles: consoles,

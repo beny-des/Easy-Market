@@ -37,7 +37,7 @@ const GameById = (props) => {
       <Grid  className={styles.gridContainer} container sx={{display:"flex",flexDirection:"row",marginTop:"50px",justifyContent:"center",}}>
      
         <Grid item>
-          <YoutubeVideo media={gameChosen.media} />
+          <YoutubeVideo media={gameChosen?.media} />
         </Grid>
 
         {gameChosen?._id && (
