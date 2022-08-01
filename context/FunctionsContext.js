@@ -19,18 +19,18 @@ export default function FunctionsProvider({ children }) {
   const [error, setError] = useState(false);
   
   
-  const func = () => {
-    fetch('url',{
-      method: 'post',
-      body:{
-        user: 'id',
-        cart:{
-          products: [],
-          sum: '400$'
-        }
-      }
-    })
-  }
+  // const func = () => {
+  //   fetch('url',{
+  //     method: 'post',
+  //     body:{
+  //       user: 'id',
+  //       cart:{
+  //         products: [],
+  //         sum: '400$'
+  //       }
+  //     }
+  //   })
+  // }
 
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export default function FunctionsProvider({ children }) {
 
   function consoleFiltering(searchOption) {
     const filteringConsole =
-      searchOption === null
+      searchOption === "All"
         ? allProducts
         : productsArray.filter((productObj) =>
             productObj.console.some(
@@ -105,8 +105,9 @@ export default function FunctionsProvider({ children }) {
   }
 
   function categoryFiltering(searchOption) {
+    console.log("searchOption",searchOption)
     const filteringCategory =
-      searchOption === null
+      searchOption === "All"
         ? allProducts
         : productsArray.filter((productObj) =>
             productObj.category.some(

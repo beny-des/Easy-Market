@@ -19,16 +19,19 @@ const SearchBars = () => {
         // spacing={12}
         
         sx={{
-          marginTop: "50px",
-          marginBottom: "50px",
-          display: "flex",
+          marginTop: "40px",
+          marginBottom: "10px",
           justifyContent: "center",
           alignItems: "center",
           height: "55px",
-          gap: 5,
         }}
       >
-        <Grid item>
+        <Grid item sx={{
+          display: "flex",
+          alignItems: "center",
+          direction:"row",
+          gap: 5,
+          }}>
           <h4 style={{ color: "white" }}>Search By Title:</h4>
           <Autocomplete
             disablePortal
@@ -38,7 +41,7 @@ const SearchBars = () => {
             sx={{
               display: "flex",
               justifyContent: "center",
-              width: 170,
+              width: 370,
               maxHeight: 49,
               backgroundColor: "white",
               alignItems: "normal",
@@ -54,7 +57,7 @@ const SearchBars = () => {
           />
         </Grid>
         {/* ================================================== */}
-        <Grid item>
+        {/* <Grid item>
           <h4 style={{ color: "white" }}>Search By Category:</h4>
           <Autocomplete
             disablePortal
@@ -77,9 +80,11 @@ const SearchBars = () => {
               categoryFiltering(newValue);
             }}
           />
-        </Grid>
+        </Grid> */}
+
         {/* ====================================================== */}
-        <Grid item>
+
+        {/* <Grid item>
           <h4 style={{ color: "white" }}>Search By Console:</h4>
           <Autocomplete
             disablePortal
@@ -102,7 +107,7 @@ const SearchBars = () => {
               consoleFiltering(newValue);
             }}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

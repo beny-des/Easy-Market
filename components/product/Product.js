@@ -100,11 +100,14 @@ const Product = ({
             <b>console:</b> {keyValues(console, "console")}
           </Typography>
           <CardActions className={styles.center}>
+            
             <b>Cart:</b>
             <Button size="large" onClick={() => onAdd(id, price)}>
               +
             </Button>
+
             <h4>{`${qtyCheck(id)}`}</h4>
+
             {qtyCheck(id) > 0 && (
               <Button size="large" onClick={() => onRemove(id, price)}>
                 -

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Cart from "../cart/Cart";
 import Login from "../login/Login";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import NavBarDrop from "../dropDownNav/NavBarDrop";
 
 function Header() {
   <Head>
@@ -11,7 +12,8 @@ function Header() {
   </Head>;
   
   return (
-    <nav className={styles.headNavBar}>
+    <nav className={styles.headNavBar} >
+      <NavBarDrop/>
       <SportsEsportsIcon
         fontSize="large"
         

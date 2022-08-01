@@ -19,7 +19,16 @@ const Glider = () => {
 
   return (
     // <div className={["glide"] + " " + [styles.cont]}>
-    <div className={"glide"} style={{ paddingTop: "5px",paddingLeft:"28px", paddingRight: "0px" }}>
+    <div
+      className={"glide"}
+      style={{
+        paddingTop: "5px",
+        paddingLeft: "28px",
+        paddingRight: "0px",
+        position: "relative",
+        zIndex: "0",
+      }}
+    >
       <div className="glide__track" data-glide-el="track">
         {/* <ul className={["glide__slides"] + " " + [styles.slides]}> */}
         <ul className={"glide__slides"}>
@@ -60,7 +69,7 @@ const Glider = () => {
           </li>
         </ul>
 
-        <div className="glide__arrows" data-glide-el="controls" >
+        <div className="glide__arrows" data-glide-el="controls">
           <button
             className="glide__arrow glide__arrow--left"
             data-glide-dir="<"

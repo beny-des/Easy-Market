@@ -9,7 +9,7 @@ const Products = () => {
 
   return (
     <>
-      <Card sx={{ marginTop: "30px" }}>
+      <Card sx={{ marginTop: "30px",  }}>
         <CardMedia
           image="https://res.cloudinary.com/dfpn73tnk/image/upload/v1658091593/wepik-futuristic-blue-holograms-gaming-twitter-header-2022617-23539_cejlcu.jpg"
           component="img"
