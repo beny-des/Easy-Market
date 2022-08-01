@@ -17,8 +17,7 @@ export default function FunctionsProvider({ children }) {
   const [totalCartPrice, setTotalCartPrice] = useState(0);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [error, setError] = useState(false);
-  
-  
+
   // const func = () => {
   //   fetch('url',{
   //     method: 'post',
@@ -31,7 +30,6 @@ export default function FunctionsProvider({ children }) {
   //     }
   //   })
   // }
-
 
   useEffect(() => {
     setLoadingSpinner(true);
@@ -49,10 +47,9 @@ export default function FunctionsProvider({ children }) {
           })
         );
       })
-      .catch(function () {
-        setError(true);
+      .catch(function (err) {
+        setError(err);
         setLoadingSpinner(false);
-
       });
   }, []);
 
@@ -62,8 +59,9 @@ export default function FunctionsProvider({ children }) {
       .then((data) => {
         setCategories(data);
       })
-      .catch(function () {
-        return "Error";
+      .catch(function (err) {
+        setError(err);
+        setLoadingSpinner(false);
       });
   }, []);
 
@@ -73,13 +71,11 @@ export default function FunctionsProvider({ children }) {
       .then((data) => {
         setConsoles(data);
       })
-      .catch(function () {
-        return "Error";
+      .catch(function (err) {
+        setError(err);
+        setLoadingSpinner(false);
       });
   }, []);
-
-
-
 
   function gameSearch(newValue) {
     const choosedOption = allProducts.find((item) => item.title === newValue);
@@ -89,7 +85,6 @@ export default function FunctionsProvider({ children }) {
     } else {
       setProductFilterdsArray(allProducts);
     }
-
   }
 
   function consoleFiltering(searchOption) {
@@ -105,7 +100,7 @@ export default function FunctionsProvider({ children }) {
   }
 
   function categoryFiltering(searchOption) {
-    console.log("searchOption",searchOption)
+    console.log("searchOption", searchOption);
     const filteringCategory =
       searchOption === "All"
         ? allProducts
@@ -173,20 +168,20 @@ export default function FunctionsProvider({ children }) {
 
   const keyValues = (array, prop) => {
     return array?.map((obj) => {
-      return (`${obj[prop]} `);
+      return `${obj[prop]} `;
     });
   };
 
   return (
     <FunctionsContext.Provider
       value={{
-        error:error,
+        error: error,
         onAdd: onAdd,
         qtyCheck: qtyCheck,
         onRemove: onRemove,
         keyValues: keyValues,
         gameSearch: gameSearch,
-        loadingSpinner:loadingSpinner,
+        loadingSpinner: loadingSpinner,
         consoleFiltering: consoleFiltering,
         totalCartPrice: totalCartPrice,
         consoles: consoles,
