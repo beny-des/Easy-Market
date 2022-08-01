@@ -48,7 +48,7 @@ export default function FunctionsProvider({ children }) {
         );
       })
       .catch(function (err) {
-        setError(err);
+        setError(err.message);
         setLoadingSpinner(false);
       });
   }, []);
@@ -60,7 +60,7 @@ export default function FunctionsProvider({ children }) {
         setCategories(data);
       })
       .catch(function (err) {
-        setError(err);
+        setError(err.message);
         setLoadingSpinner(false);
       });
   }, []);
@@ -72,7 +72,7 @@ export default function FunctionsProvider({ children }) {
         setConsoles(data);
       })
       .catch(function (err) {
-        setError(err);
+        setError(err.message);
         setLoadingSpinner(false);
       });
   }, []);
