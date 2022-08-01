@@ -22,8 +22,7 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn(user /*account profile */) {
-
-      return true;
+      return user;
     },
   },
 });
