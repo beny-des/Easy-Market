@@ -53,7 +53,7 @@ const Glider = () => {
         <ul className={"glide__slides"}>
        { imageArray.map((img)=>{return(
 
-        <li className="glide__slide">
+        <li key={imageArray.img} className="glide__slide">
             <img
             key={img}
               src={img}
