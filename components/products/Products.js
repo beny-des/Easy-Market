@@ -4,12 +4,25 @@ import { Card, CardMedia, Grid } from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
 import SearchBars from "../search/SearchBars";
 
-const Products = () => {
-  const { productsFilteredArray } = useFunctions();
+export async function getStaticProps() {
 
+const res = await fetch('/api/product')
+const productall = await res.json()
+return {
+  props: {
+    productall,
+  },
+}
+}
+
+const Products = ({productall}) => {
+  const { productsFilteredArray } = useFunctions();
+  
+  console.log("productall",productall);
+  
   return (
     <>
-      <Card sx={{ marginTop: "30px",  }}>
+      <Card sx={{ marginTop: "30px"}}>
         <CardMedia
           image="https://res.cloudinary.com/dfpn73tnk/image/upload/v1658091593/wepik-futuristic-blue-holograms-gaming-twitter-header-2022617-23539_cejlcu.jpg"
           component="img"

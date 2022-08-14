@@ -17,19 +17,23 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import BoltIcon from "@mui/icons-material/Bolt";
 
+import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
+
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { Box, Button } from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
+import Link from "next/link";
 function NavBarDrop() {
  
   return (
-    <Navbar>
+    <Navbar   
+      >
       {/* <NavItem icon={<AddIcon />} />
       <NavItem icon={<NotificationsIcon />} />
       <NavItem icon={<EmailIcon />} /> */}
-
-      <NavItem  icon={<MenuIcon />}>
+  
+      <NavItem  icon={<MenuIcon />}  >
         <DropdownMenu></DropdownMenu>
       </NavItem>
     </Navbar>
@@ -45,15 +49,20 @@ function Navbar(props) {
 }
 
 function NavItem(props) {
-  const [open, setOpen] = useState(false);
+  const {openMenu,setOpenMenu}=useFunctions()
+  // const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <li className="nav-item">
-      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+    <li className="nav-item"  >
+      <a   className="icon-button"
+       onClick={() => setOpenMenu(!openMenu)} 
+     
+    
+      >
         {props.icon}
       </a>
 
-      {open && props.children}
+      {openMenu && props.children}
     </li>
   );
 }
@@ -66,8 +75,6 @@ function DropdownMenu() {
   const {
     categories,
     categoryFiltering,
-    titleSearch,
-    gameSearch,
     consoleFiltering,
     consoles,
   } = useFunctions();
@@ -85,7 +92,8 @@ function DropdownMenu() {
   function DropdownItem(props) {
     return (
       <a
-        href="#"
+        // href="#"
+    
         className="menu-item"
         onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
       >
@@ -101,6 +109,7 @@ function DropdownMenu() {
       className="dropdown"
       sx={{ height: menuHeight * 1.04 }}
       ref={dropdownRef}
+     
     >
       <CSSTransition
         in={activeMenu === "main"}
@@ -113,19 +122,41 @@ function DropdownMenu() {
           <DropdownItem>My Profile</DropdownItem>
           <DropdownItem
             leftIcon={<img src="/images/game-console.256x184.png" alt="pic" style={{width:"30px"}}/>}
-            // {<SettingsIcon />}
+            // leftIcon={< SportsEsportsOutlinedIcon style={{fontSize:'35px'}}/>}
+            
             rightIcon={<ArrowForwardIosIcon />}
             goToMenu="consoles"
           >
             Consoles
           </DropdownItem>
           <DropdownItem
-            leftIcon="🦧"
+            leftIcon={<img src="/images/option-2.256x256.png" alt="pic" style={{width:"30px"}}/>}
+            rightIcon={<ArrowForwardIosIcon />}
+            goToMenu="categories"
+          >
+           
+            Categories
+          
+            
+          </DropdownItem>
+          <DropdownItem
+            leftIcon={<img src="/images/news-paper.256x256.png" alt="pic" style={{width:"28px"}}/>}
+            // rightIcon={<ArrowForwardIosIcon />}
+      
+          >
+        <Link href="https://www.gamespot.com/news/">
+          <a className="news">News</a>
+        </Link>
+          </DropdownItem>
+
+
+          {/* <DropdownItem
+            leftIcon={<img src="/images/option-2.256x256.png" alt="pic" style={{width:"30px"}}/>}
             rightIcon={<ArrowForwardIosIcon />}
             goToMenu="categories"
           >
             Categories
-          </DropdownItem>
+          </DropdownItem> */}
         </div>
       </CSSTransition>
 
@@ -166,7 +197,7 @@ function DropdownMenu() {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowBackIcon />}>
+          <DropdownItem goToMenu="main"  leftIcon={<ArrowBackIcon />}>
             <h2><u>Categories</u></h2>
           </DropdownItem>
           <DropdownItem value="All" leftIcon={<BoltIcon />} >
@@ -179,7 +210,7 @@ function DropdownMenu() {
             return (
               <DropdownItem key={item.category} leftIcon={<BoltIcon />} >
                 <div onClick={(e,newValue) => {categoryFiltering(item.category)}} 
-                 style={{}}><h4>{item.category}</h4></div>
+                 ><h4>{item.category}</h4></div>
               </DropdownItem>
             );
           })}

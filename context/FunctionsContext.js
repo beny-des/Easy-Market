@@ -17,7 +17,9 @@ export default function FunctionsProvider({ children }) {
   const [totalCartPrice, setTotalCartPrice] = useState(0);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [error, setError] = useState(false);
+  const [openMenu,setOpenMenu] = useState(false);
 
+  
   // const func = () => {
   //   fetch('url',{
   //     method: 'post',
@@ -30,6 +32,9 @@ export default function FunctionsProvider({ children }) {
   //     }
   //   })
   // }
+
+
+
 
   useEffect(() => {
     setLoadingSpinner(true);
@@ -175,6 +180,8 @@ export default function FunctionsProvider({ children }) {
   return (
     <FunctionsContext.Provider
       value={{
+        openMenu:openMenu, 
+        setOpenMenu:setOpenMenu,
         error: error,
         onAdd: onAdd,
         qtyCheck: qtyCheck,

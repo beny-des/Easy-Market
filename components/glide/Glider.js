@@ -18,7 +18,7 @@ const Glider = () => {
   }, []);
 
   return (
-    // <div className={["glide"] + " " + [styles.cont]}>
+ 
     <div
       className={"glide"}
       style={{
@@ -30,7 +30,7 @@ const Glider = () => {
       }}
     >
       <div className="glide__track" data-glide-el="track">
-        {/* <ul className={["glide__slides"] + " " + [styles.slides]}> */}
+      
         <ul className={"glide__slides"}>
           <li className="glide__slide">
             <img

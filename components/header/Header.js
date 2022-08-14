@@ -27,9 +27,6 @@ function Header() {
         <Link href="/">
           <a className="home">Home</a>
         </Link>
-        <Link href="https://www.gamespot.com/news/">
-          <a className="news">News</a>
-        </Link>
 
         <div className={styles.dropdown}>
           <button className={styles.dropbtn}>

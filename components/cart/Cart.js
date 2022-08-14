@@ -142,6 +142,8 @@ const Cart=()=> {
                     }}
                   >
                     <b>Total price : {totalCartPrice}$</b>
+                    <button type="submit" style={{margin:"auto",backgroundColor:"red",color:"whitesmoke",borderRadius:"3px"}}>Purchase</button>
+                  
                   </Typography>
         </div>
         

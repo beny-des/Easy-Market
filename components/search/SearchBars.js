@@ -4,19 +4,14 @@ import { useFunctions } from "../../context/FunctionsContext";
 
 const SearchBars = () => {
   const {
-    categories,
-    categoryFiltering,
     titleSearch,
     gameSearch,
-    consoleFiltering,
-    consoles,
   } = useFunctions();
   
   return (
     <>
       <Grid
         container
-        // spacing={12}
         
         sx={{
           marginTop: "40px",

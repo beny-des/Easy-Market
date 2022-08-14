@@ -14,21 +14,11 @@ import {
 import { useFunctions } from "../../context/FunctionsContext";
 import Link from "next/link";
 
-const Product = ({
-  image,
-  title,
-  price,
-  id,
-  category,
-  console,
-  description,
-  sale,
-}) => {
+const Product = ({ image, title, price, id, category, console, sale }) => {
   const { onAdd, onRemove, qtyCheck, keyValues } = useFunctions();
-  
 
   
-  
+
   return (
     <Grid item>
       <div className={styles.productContainer}>
@@ -88,7 +78,7 @@ const Product = ({
             sx={{ marginTop: "5px", marginBottom: "5px", marginLeft: "15px" }}
           >
             <b>price: </b>
-            {price}$
+            {sale === "true" ? price * 0.5 : price} $
           </Typography>
           <Typography
             className={styles.typography}
@@ -100,7 +90,6 @@ const Product = ({
             <b>console:</b> {keyValues(console, "console")}
           </Typography>
           <CardActions className={styles.center}>
-            
             <b>Cart:</b>
             <Button size="large" onClick={() => onAdd(id, price)}>
               +
@@ -114,7 +103,6 @@ const Product = ({
               </Button>
             )}
           </CardActions>
-  
         </Card>
       </div>
     </Grid>

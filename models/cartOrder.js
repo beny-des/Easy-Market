@@ -13,10 +13,20 @@ const cartOrder = new Schema({
         ref: Product,
       },
     ],
+    address:{
+      type:String,required:true
+
+    },
     date:{
+      type:Number
+
+    },
+    paymentId:{
+      type:Number,required:true
 
     },
     sum:{
+      type:Number
 
     }
 
