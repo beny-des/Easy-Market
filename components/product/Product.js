@@ -13,11 +13,10 @@ import {
 } from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
 import Link from "next/link";
+import Image from "next/image";
 
 const Product = ({ image, title, price, id, category, console, sale }) => {
   const { onAdd, onRemove, qtyCheck, keyValues } = useFunctions();
-
-  
 
   return (
     <Grid item>
@@ -80,14 +79,33 @@ const Product = ({ image, title, price, id, category, console, sale }) => {
             <b>price: </b>
             {sale === "true" ? price * 0.5 : price} $
           </Typography>
+
           <Typography
             className={styles.typography}
-            title={keyValues(console, "console")}
+            // title={keyValues(console, "console")}
             variant="body2"
             color="black"
-            sx={{ marginTop: "5px", marginBottom: "5px", marginLeft: "15px" }}
+            sx={{
+              marginTop: "5px",
+              marginBottom: "5px",
+              marginLeft: "15px",
+              display: "flex",
+              alignItems: "center",
+            }}
           >
-            <b>console:</b> {keyValues(console, "console")}
+            <b>console:</b>
+            {console.map((obj) => {
+              return (
+                <div key={obj.id} style={{ marginLeft: "7px" }}>
+                  <Image
+                    src={obj.image}
+                    alt={"console pic"}
+                    width={25}
+                    height={25}
+                  />
+                </div>
+              );
+            })}
           </Typography>
           <CardActions className={styles.center}>
             <b>Cart:</b>

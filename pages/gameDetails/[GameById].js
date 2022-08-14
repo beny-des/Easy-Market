@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import styles from "../gameDetails/GameById.module.css";
-import YoutubeVideo from "../../components/madia/MediaVideo";
+import YoutubeVideo from "../../components/media/MediaVideo";
 
 const GameById = (props) => {
   const router = useRouter();
@@ -21,14 +21,9 @@ const GameById = (props) => {
   const { allProducts, onAdd, onRemove, keyValues, qtyCheck } = useFunctions();
 
   const gameChosen = allProducts.find((game) => game._id === GameById);
-//   useEffect(()=>{
-    
-//     gameChosen.media
-// },[])
-  // console.log("gameChosen", gameChosen.media);
+
   return (
     <div className={styles.body}>
-      {/* <Grid item> */}
       <Card sx={{ marginTop: "5px" }}>
         <CardMedia
           image="https://res.cloudinary.com/dfpn73tnk/image/upload/v1658744059/wepik-futuristic-blue-holograms-gaming-twitter-header-2022625-13138_oqiga4.png"
@@ -37,8 +32,16 @@ const GameById = (props) => {
           height="190"
         />
       </Card>
-      <Grid  className={styles.gridContainer} container sx={{display:"flex",flexDirection:"row",marginTop:"50px",justifyContent:"center",}}>
-     
+      <Grid
+        className={styles.gridContainer}
+        container
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          marginTop: "50px",
+          justifyContent: "center",
+        }}
+      >
         <Grid item>
           <YoutubeVideo media={gameChosen?.media} />
         </Grid>

@@ -1,39 +1,22 @@
-// import './index.css';
-// import { ReactComponent as BellIcon } from './icons/bell.svg';
 import NotificationsIcon from "@mui/icons-material/Notifications";
-// import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import EmailIcon from "@mui/icons-material/Email";
-// import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
 import MenuIcon from "@mui/icons-material/Menu";
-// import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import AddIcon from "@mui/icons-material/Add";
-// import { ReactComponent as CogIcon } from './icons/cog.svg';
 import SettingsIcon from "@mui/icons-material/Settings";
-// import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-// import { ReactComponent as ArrowBackIcon } from './icons/arrow.svg';
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-// import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import BoltIcon from "@mui/icons-material/Bolt";
-
-import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
-
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { Box, Button } from "@mui/material";
+import { Box} from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
-import Link from "next/link";
 function NavBarDrop() {
  
   return (
-    <Navbar   
-      >
-      {/* <NavItem icon={<AddIcon />} />
-      <NavItem icon={<NotificationsIcon />} />
-      <NavItem icon={<EmailIcon />} /> */}
-  
-      <NavItem  icon={<MenuIcon />}  >
+    <Navbar>
+
+      <NavItem  icon={<MenuIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
     </Navbar>
@@ -49,20 +32,15 @@ function Navbar(props) {
 }
 
 function NavItem(props) {
-  const {openMenu,setOpenMenu}=useFunctions()
-  // const [openMenu, setOpenMenu] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <li className="nav-item"  >
-      <a   className="icon-button"
-       onClick={() => setOpenMenu(!openMenu)} 
-     
-    
-      >
+    <li className="nav-item">
+      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
         {props.icon}
       </a>
 
-      {openMenu && props.children}
+      {open && props.children}
     </li>
   );
 }
@@ -75,6 +53,8 @@ function DropdownMenu() {
   const {
     categories,
     categoryFiltering,
+    titleSearch,
+    gameSearch,
     consoleFiltering,
     consoles,
   } = useFunctions();
@@ -92,8 +72,7 @@ function DropdownMenu() {
   function DropdownItem(props) {
     return (
       <a
-        // href="#"
-    
+        href="#"
         className="menu-item"
         onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
       >
@@ -109,7 +88,6 @@ function DropdownMenu() {
       className="dropdown"
       sx={{ height: menuHeight * 1.04 }}
       ref={dropdownRef}
-     
     >
       <CSSTransition
         in={activeMenu === "main"}
@@ -119,44 +97,31 @@ function DropdownMenu() {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem>My Profile</DropdownItem>
           <DropdownItem
-            leftIcon={<img src="/images/game-console.256x184.png" alt="pic" style={{width:"30px"}}/>}
-            // leftIcon={< SportsEsportsOutlinedIcon style={{fontSize:'35px'}}/>}
-            
+                      leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660243740/profile1_xommge.png" alt="pic" />}
+
+          >My Profile</DropdownItem>
+          <DropdownItem
+            leftIcon={<img src="https://res.cloudinary.com/dfpn73tnk/image/upload/v1660244156/game-console.256x184_wk8qbt.png" alt="pic" style={{width:"30px"}}/>}
+          
             rightIcon={<ArrowForwardIosIcon />}
             goToMenu="consoles"
           >
             Consoles
           </DropdownItem>
           <DropdownItem
-            leftIcon={<img src="/images/option-2.256x256.png" alt="pic" style={{width:"30px"}}/>}
+            leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660244156/option-2.256x256_lepq3r.png" alt="pic" style={{width:"30px"}}/>}
             rightIcon={<ArrowForwardIosIcon />}
             goToMenu="categories"
           >
-           
             Categories
-          
-            
           </DropdownItem>
+
           <DropdownItem
-            leftIcon={<img src="/images/news-paper.256x256.png" alt="pic" style={{width:"28px"}}/>}
-            // rightIcon={<ArrowForwardIosIcon />}
-      
+            leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660244156/news-paper.256x256_ivbu1b.png" alt="pic" style={{width:"30px"}}/>}
           >
-        <Link href="https://www.gamespot.com/news/">
-          <a className="news">News</a>
-        </Link>
+            <a href="https://www.gamespot.com/news/">News</a>
           </DropdownItem>
-
-
-          {/* <DropdownItem
-            leftIcon={<img src="/images/option-2.256x256.png" alt="pic" style={{width:"30px"}}/>}
-            rightIcon={<ArrowForwardIosIcon />}
-            goToMenu="categories"
-          >
-            Categories
-          </DropdownItem> */}
         </div>
       </CSSTransition>
 
@@ -197,7 +162,7 @@ function DropdownMenu() {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem goToMenu="main"  leftIcon={<ArrowBackIcon />}>
+          <DropdownItem goToMenu="main" leftIcon={<ArrowBackIcon />}>
             <h2><u>Categories</u></h2>
           </DropdownItem>
           <DropdownItem value="All" leftIcon={<BoltIcon />} >
@@ -210,7 +175,7 @@ function DropdownMenu() {
             return (
               <DropdownItem key={item.category} leftIcon={<BoltIcon />} >
                 <div onClick={(e,newValue) => {categoryFiltering(item.category)}} 
-                 ><h4>{item.category}</h4></div>
+                 style={{}}><h4>{item.category}</h4></div>
               </DropdownItem>
             );
           })}

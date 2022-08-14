@@ -1,6 +1,26 @@
 import React, { useEffect } from "react";
-import Glide, { Controls, Breakpoints } from "@glidejs/glide";
+import Glide from "@glidejs/glide";
 import styles from "../glide/Glider.module.css";
+
+
+const imageArray = [
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1657196868/Tekken_ojxugg.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1657442141/biomutant-pc-game-steam-cover_oykkkg.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061168/Glider/MK_vemuos.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061169/Glider/Uncharted_k1eelx.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061174/Glider/Prince_of_persia_gmlijx.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061174/Glider/Tomb_raider_z6jxql.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061181/Glider/just_cause_zdksx4.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660125478/Glider/Horizen_f5cmbx.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660125478/Glider/Skyrim_zr1r8r.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061161/Glider/Anthem_yvipie.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061161/Glider/Ghost_of_tsushima_rubedh.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061160/Glider/Batman_ztcgql.jpg",
+  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660123001/Glider/final-fantasy-vii-remake-cloud_ur8rwd.jpg",
+
+];
+
+
 
 const Glider = () => {
   useEffect(() => {
@@ -18,7 +38,6 @@ const Glider = () => {
   }, []);
 
   return (
- 
     <div
       className={"glide"}
       style={{
@@ -30,15 +49,21 @@ const Glider = () => {
       }}
     >
       <div className="glide__track" data-glide-el="track">
-      
+        {/* <ul className={["glide__slides"] + " " + [styles.slides]}> */}
         <ul className={"glide__slides"}>
-          <li className="glide__slide">
+       { imageArray.map((img)=>{return(
+
+        <li className="glide__slide">
             <img
-              src="/images/Tekken.jpg"
+            key={img}
+              src={img}
               alt="pic"
               className={styles.slideImg}
             ></img>
-          </li>
+          </li>)
+       })}
+
+{/*           
           <li className="glide__slide">
             <img
               src="/images/Gears-of-war4.jpg"
@@ -66,7 +91,8 @@ const Glider = () => {
               alt="pic"
               className={styles.slideImg}
             ></img>
-          </li>
+          </li> */}
+
         </ul>
 
         <div className="glide__arrows" data-glide-el="controls">
