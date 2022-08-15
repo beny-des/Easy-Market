@@ -12,15 +12,16 @@ import { CSSTransition } from "react-transition-group";
 import { Box} from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
 function NavBarDrop() {
- 
-  return (
-    <Navbar>
+    
+    return (
+        <Navbar>
 
       <NavItem  icon={<MenuIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
     </Navbar>
   );
+
 }
 
 function Navbar(props) {
@@ -32,15 +33,17 @@ function Navbar(props) {
 }
 
 function NavItem(props) {
-  const [open, setOpen] = useState(false);
 
+  const { openMenu,setOpenMenu } = useFunctions();
   return (
     <li className="nav-item">
-      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+      <a 
+    //   href="#" 
+      className="icon-button" onClick={() => setOpenMenu(!openMenu)}>
         {props.icon}
       </a>
 
-      {open && props.children}
+      {openMenu && props.children}
     </li>
   );
 }
@@ -98,7 +101,7 @@ function DropdownMenu() {
       >
         <div className="menu">
           <DropdownItem
-                      leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660243740/profile1_xommge.png" alt="pic" />}
+                      leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660243740/profile1_xommge.png" alt="pic" style={{width:"46px"}} />}
 
           >My Profile</DropdownItem>
           <DropdownItem
@@ -113,12 +116,13 @@ function DropdownMenu() {
             leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660244156/option-2.256x256_lepq3r.png" alt="pic" style={{width:"30px"}}/>}
             rightIcon={<ArrowForwardIosIcon />}
             goToMenu="categories"
+            
           >
             Categories
           </DropdownItem>
 
           <DropdownItem
-            leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660244156/news-paper.256x256_ivbu1b.png" alt="pic" style={{width:"30px"}}/>}
+            leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660244156/news-paper.256x256_ivbu1b.png" alt="pic" style={{width:"27px"}}/>}
           >
             <a href="https://www.gamespot.com/news/">News</a>
           </DropdownItem>
