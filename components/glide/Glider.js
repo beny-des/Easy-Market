@@ -55,43 +55,12 @@ const Glider = () => {
 
         <li key={img.id} className="glide__slide">
             <img
-            // key={img}
               src={img.pic}
               alt="pic"
               className={styles.slideImg}
             ></img>
           </li>)
        })}
-
-{/*           
-          <li className="glide__slide">
-            <img
-              src="/images/Gears-of-war4.jpg"
-              alt="pic"
-              className={styles.slideImg}
-            ></img>
-          </li>
-          <li className="glide__slide">
-            <img
-              src="/images/Biomutant.jpg"
-              alt="pic"
-              className={styles.slideImg}
-            ></img>
-          </li>
-          <li className="glide__slide">
-            <img
-              src="/images/PUBG.jpg"
-              alt="pic"
-              className={styles.slideImg}
-            ></img>
-          </li>
-          <li className="glide__slide">
-            <img
-              src="https://res.cloudinary.com/dfpn73tnk/image/upload/v1657442141/biomutant-pc-game-steam-cover_oykkkg.jpg"
-              alt="pic"
-              className={styles.slideImg}
-            ></img>
-          </li> */}
 
         </ul>
 
