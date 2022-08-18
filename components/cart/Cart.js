@@ -39,7 +39,7 @@ const Cart=()=> {
         anchor="right"
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
-        // sx={{position:"relative"}}
+        
       >
         <Box p={2} width="250px" textAlign="center" role="presentation" sx={{backgroundColor:"rgba(255, 208, 66, 0.545)"}}>
           <Typography variant="h6" component="div">

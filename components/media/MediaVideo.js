@@ -16,7 +16,7 @@
     
         return (
           <div>
-            {/* <h3>GeeksforGeeks - Youtube</h3> */}
+          
             <YouTube videoId={media} opts={opts} onReady={this._onReady} />
           </div>
         );

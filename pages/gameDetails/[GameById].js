@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import styles from "../gameDetails/GameById.module.css";
 import YoutubeVideo from "../../components/media/MediaVideo";
+import Image from "next/image";
 
 const GameById = (props) => {
   const router = useRouter();
@@ -106,9 +107,24 @@ const GameById = (props) => {
                   marginLeft: "15px",
                 }}
               >
+                 <div style={{ display:"flex", alignItems: "center"}}>
                 <b>Console: </b>
-
-                {keyValues(gameChosen.console, "console")}
+                {gameChosen.console.map((obj) => {
+              return (
+               
+                  <div key={obj.id} style={{marginLeft:"7px"}} >
+                    <Image
+                      src={obj.image}
+                      alt={"console pic"}
+                      width={25}
+                      height={25}
+                      
+                    />
+                  </div>
+                
+              );
+            })}</div>
+            
               </Typography>
               <Typography
                 className={styles.typography}

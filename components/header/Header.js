@@ -7,46 +7,23 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import NavBarDrop from "../dropDownNav/NavBarDrop";
 
 function Header() {
-  <Head>
-    {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/> */}
-  </Head>;
-  
+ 
+
   return (
-    <nav className={styles.headNavBar} >
-      <NavBarDrop/>
-      <SportsEsportsIcon
-        fontSize="large"
+    <nav className={styles.headNavBar}>
+      <NavBarDrop />
+
+      <Link href="/">
+        <SportsEsportsIcon
         
-        sx={{ color: "rgb(255, 200, 34)",
-          borderRadius: "30%",
-        }}
-      />
-      <h1 className={styles.headLine}>Easy Play</h1>
+          fontSize="large"
+          sx={{ color: "rgb(255, 200, 34)", borderRadius: "30%" }}
+        />
+      </Link>
+      <Link href="/">
+        <h1 className={styles.headLine}>Easy Play</h1>
+      </Link>
 
-      <div className={styles.navbar}>
-        <Link href="/">
-          <a className="home">Home</a>
-        </Link>
-
-        <div className={styles.dropdown}>
-          <button className={styles.dropbtn}>
-            Games
-            <i className={styles.arrowDown}></i>
-          </button>
-
-          <div className={styles.dropdownContent}>
-            <Link href="/category">
-              <a>Coming soon</a>
-            </Link>
-            <Link href="/reviews">
-              <a>Reviews</a>
-            </Link>
-            <Link href="https://www.twitch.tv/">
-              <a>Game Blogs</a>
-            </Link>
-          </div>
-        </div>
-      </div>
       <div className={styles.cartIcon}>
         <Login />
         <Cart />

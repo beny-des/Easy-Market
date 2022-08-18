@@ -9,7 +9,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import BoltIcon from "@mui/icons-material/Bolt";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { Box} from "@mui/material";
+import { Box, Link} from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
 function NavBarDrop() {
     
@@ -37,11 +37,11 @@ function NavItem(props) {
   const { openMenu,setOpenMenu } = useFunctions();
   return (
     <li className="nav-item">
-      <a 
-    //   href="#" 
+      <div
+    
       className="icon-button" onClick={() => setOpenMenu(!openMenu)}>
         {props.icon}
-      </a>
+      </div>
 
       {openMenu && props.children}
     </li>
@@ -56,8 +56,6 @@ function DropdownMenu() {
   const {
     categories,
     categoryFiltering,
-    titleSearch,
-    gameSearch,
     consoleFiltering,
     consoles,
   } = useFunctions();
@@ -74,15 +72,15 @@ function DropdownMenu() {
 
   function DropdownItem(props) {
     return (
-      <a
-        href="#"
+      <div
+        style={{cursor:"pointer"}}
         className="menu-item"
         onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
       >
         <span className="icon-button">{props.leftIcon}</span>
         {props.children}
         <span className="icon-right">{props.rightIcon}</span>
-      </a>
+      </div>
     );
   }
 
@@ -120,12 +118,34 @@ function DropdownMenu() {
           >
             Categories
           </DropdownItem>
-
+            <a href="https://www.gamespot.com/news/">
           <DropdownItem
             leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660244156/news-paper.256x256_ivbu1b.png" alt="pic" style={{width:"27px"}}/>}
           >
-            <a href="https://www.gamespot.com/news/">News</a>
+            News
+          </DropdownItem></a>
+
+              <Link className="dropLinks" href="/comingSoonGames" >
+          <DropdownItem
+            leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660737444/bell-alert.232x256_mzblsl.png" alt="pic" style={{width:"27px"}}/>}
+          >
+           
+              Coming soon
+            
+              
+          </DropdownItem></Link>
+        
+             <Link className="dropLinks" href="https://www.twitch.tv/" 
+              style={{}}
+             >
+          <DropdownItem
+            leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660737841/micro-blog.255x256_t3qnxu.png" alt="pic" style={{width:"27px"}}/>}
+          >
+             
+              Game Blogs
+            
           </DropdownItem>
+          </Link>
         </div>
       </CSSTransition>
 
@@ -142,7 +162,8 @@ function DropdownMenu() {
           </DropdownItem>
 
           <DropdownItem value="All" leftIcon={<BoltIcon />}>
-          <div onClick={(e,newValue) => {consoleFiltering("All")}}><h4>All</h4></div>
+          <div onClick={(e,newValue) => {consoleFiltering("All")}
+        }><h4>All</h4></div>
           </DropdownItem>
 
           {consoles?.map((item) => {
@@ -170,7 +191,6 @@ function DropdownMenu() {
             <h2><u>Categories</u></h2>
           </DropdownItem>
           <DropdownItem value="All" leftIcon={<BoltIcon />} >
-                {/* <Button onClick={(e,newValue) => {categoryFiltering("All")}}  style={{backgroundColor:"inherit",color:"white",border:"0",marginLeft:"5px"}}>All</Button> */}
                <div onClick={(e,newValue) => {categoryFiltering("All")}}><h4>All</h4></div>
                 
               </DropdownItem>

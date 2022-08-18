@@ -27,7 +27,19 @@ const Schema = mongoose.Schema;
     console: {
         type:  [{type:Schema.Types.ObjectId,ref: Console}],
         
-    }
+    },
+    media: {
+        type: String,
+        
+    },
+    sale: {
+        type: Boolean,
+        
+    },
+    released: {
+        type: Boolean,
+        
+    },
 });
 
 mongoose.models = {};

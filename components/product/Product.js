@@ -19,8 +19,9 @@ const Product = ({ image, title, price, id, category, console, sale }) => {
   const { onAdd, onRemove, qtyCheck, keyValues } = useFunctions();
 
   return (
-    <Grid item>
-      <div className={styles.productContainer}>
+    
+    <Grid item key={id}>
+      <div  className={styles.productContainer}>
         <Card className={styles.productCard}>
           <CardActionArea>
             <Link href={`/gameDetails/${[id]}`}>
@@ -30,9 +31,10 @@ const Product = ({ image, title, price, id, category, console, sale }) => {
                   height="180"
                   image={image}
                   alt="game pic"
+                  
                 />
 
-                {sale === "true" ? (
+                {sale === true ? (
                   <CardMedia
                     component="img"
                     sx={{ position: "absolute", top: "0%" }}

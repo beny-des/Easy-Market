@@ -16,7 +16,7 @@ font-family: 'Brush Script MT', cursive;
   border-radius: 50%;
   height: 120px;
   width: 120px;
-/* min-height: 600px;   */
+
 }
 
 .loader:before {

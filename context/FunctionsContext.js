@@ -14,12 +14,12 @@ export default function FunctionsProvider({ children }) {
   const [productsFilteredArray, setProductFilterdsArray] = useState([]);
   const [categories, setCategories] = useState([]);
   const [consoles, setConsoles] = useState([]);
+  const [comingSoon, setComingSoon] = useState([]);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [error, setError] = useState(false);
-  const [openMenu,setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
-  
   // const func = () => {
   //   fetch('url',{
   //     method: 'post',
@@ -33,22 +33,48 @@ export default function FunctionsProvider({ children }) {
   //   })
   // }
 
-
-
-
   useEffect(() => {
     setLoadingSpinner(true);
     setError(false);
     fetch("/api/product")
       .then((result) => result.json())
       .then((data) => {
-        setAllProducts(data);
+        setAllProducts(
+          data.filter((product) => {
+            if (product.released === true) {
+              return [...allProducts], { ...product };
+            }
+          })
+        );
         setProductsArray(data);
-        setProductFilterdsArray(data);
+        setProductFilterdsArray(
+          data.filter((product) => {
+            if (product.released === true) {
+              return [...productsFilteredArray], { ...product };
+            }
+          })
+        );
         setLoadingSpinner(false);
         setTitleSearch(
           data.map((product) => {
-            return product.title;
+            if (product.released === true) {
+              return product.title;
+            } else if (product.released === false) {
+              return [];
+            }
+          })
+        );
+        console.log("allProducts", allProducts);
+
+        setComingSoon(
+          data.filter((product) => {
+            if (product.released === false) {
+              const filteringComingSoon =
+                product.released === false
+                  ? ([...comingSoon], { ...product })
+                  : [...comingSoon];
+              return filteringComingSoon;
+            }
           })
         );
       })
@@ -105,7 +131,6 @@ export default function FunctionsProvider({ children }) {
   }
 
   function categoryFiltering(searchOption) {
-    console.log("searchOption", searchOption);
     const filteringCategory =
       searchOption === "All"
         ? allProducts
@@ -177,11 +202,20 @@ export default function FunctionsProvider({ children }) {
     });
   };
 
+  // const gamesNotReleased=()=>{
+  //   allProducts.map((product)=>{if(product.release===false){
+  //     setComingSoon(...comingSoon,product)
+  //   }})
+  //   return(
+  //     <div></div>
+  //   )
+  // }
+
   return (
     <FunctionsContext.Provider
       value={{
-        openMenu:openMenu, 
-        setOpenMenu:setOpenMenu,
+        openMenu: openMenu,
+        setOpenMenu: setOpenMenu,
         error: error,
         onAdd: onAdd,
         qtyCheck: qtyCheck,
@@ -190,6 +224,8 @@ export default function FunctionsProvider({ children }) {
         gameSearch: gameSearch,
         loadingSpinner: loadingSpinner,
         consoleFiltering: consoleFiltering,
+        comingSoon: comingSoon,
+        setComingSoon: setComingSoon,
         totalCartPrice: totalCartPrice,
         consoles: consoles,
         cartItems: cartItems,

@@ -1,24 +1,23 @@
-import styles from "../products/Products.module.css";
 import Product from "../product/Product";
 import { Card, CardMedia, Grid } from "@mui/material";
 import { useFunctions } from "../../context/FunctionsContext";
 import SearchBars from "../search/SearchBars";
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
 
-const res = await fetch('/api/product')
-const productall = await res.json()
-return {
-  props: {
-    productall,
-  },
-}
-}
+// const res = await fetch('/api/product')
+// const productall = await res.json()
+// return {
+//   props: {
+//     productall,
+//   },
+// }
+// }
 
-const Products = ({productall}) => {
+const Products = ({ }) => {
   const { productsFilteredArray } = useFunctions();
   
-  console.log("productall",productall);
+
   
   return (
     <>
@@ -40,6 +39,7 @@ const Products = ({productall}) => {
       }}
       >
         {productsFilteredArray.map((product) => (
+          
           <Product
             key={product._id}
             id={product._id}
@@ -47,8 +47,7 @@ const Products = ({productall}) => {
             category={product.category}
             image={product.image}
             price={product.price}
-            description={product.description}
-            console={product.console}
+            console={product.console}            
             sale={product.sale}
           />
         ))}

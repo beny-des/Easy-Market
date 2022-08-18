@@ -5,7 +5,7 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     // Check if {keys} is provided
 
-    const { title, category, description, image, price, console } = req.body;
+    const { title, category, description, image, price, console,media,sale,released } = req.body;
     if (title && description && price) {
       try {
         const product = new ProductModule({
@@ -15,6 +15,9 @@ const handler = async (req, res) => {
           image,
           price,
           console,
+          media,
+          sale,
+          released
         });
 
         const productCreated = await product.save();

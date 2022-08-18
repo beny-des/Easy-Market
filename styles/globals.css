@@ -34,6 +34,14 @@ a {
  
 }
 
+.dropLinks{
+  text-decoration: none;
+  color:white
+}
+/* .dropLinks:hover{
+  color:black;
+} */
+
 /* Top Navigation Bar */
 
 /* <nav> */
@@ -133,6 +141,14 @@ a {
 .menu-item:hover {
   /* background-color: #525357; */
   background-color:rgb(255, 200, 34);
+  color:black;
+  
+}
+
+.dropLinks:hover{
+  background-color:rgb(255, 200, 34);
+  color:black;
+
 }
 
 .icon-right {

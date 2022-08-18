@@ -1,12 +1,11 @@
 .productContainer {
   margin-top: 70px;
   transition: 0.5s ease;
-  /* margin-bottom: 70px; */
-  /* display: flex; */
+
 }
 .productContainer:hover {
 
-  /* box-shadow: 6px 6px; */
+
   border-radius: 2%;
   transform: scale(1.05);
   box-shadow: 5px 5px 15px rgba(0, 30, 255, 0.9);
@@ -15,7 +14,7 @@
 
 .productCard {
   max-width: 280px;
-  /* margin-top: 20px; */
+
 }
 
 .typography {
