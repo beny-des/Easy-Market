@@ -3,7 +3,7 @@ import Glide from "@glidejs/glide";
 import styles from "../glide/Glider.module.css";
 
 const imageArray = [
- {
+  {
     id: 0,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061161/Glider/Ghost_of_tsushima_rubedh.jpg",
   },
@@ -15,12 +15,15 @@ const imageArray = [
     id: 2,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1657442141/biomutant-pc-game-steam-cover_oykkkg.jpg",
   },
-  {id:3,pic:"https://res.cloudinary.com/dfpn73tnk/image/upload/v1660633963/Check%20folder/Tekken7_mjjl9l.jpg"},
-
   {
-    id: 4,
+    id: 3,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660125478/Glider/Skyrim_zr1r8r.jpg",
   },
+  {
+    id: 4,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660850841/Glider/1245705-heihachi-mishima-tekken-7_un4ljz.jpg",
+  },
+
   {
     id: 5,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660562656/Check%20folder/Horizen_face_otbc0h.jpg",
@@ -53,7 +56,7 @@ const imageArray = [
     id: 12,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660123001/Glider/final-fantasy-vii-remake-cloud_ur8rwd.jpg",
   },
- 
+
   {
     id: 13,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660562661/Check%20folder/new-horizon-forbidden-west-2022_3840x2160_dlgsi7.jpg",
@@ -102,13 +105,15 @@ const Glider = () => {
         </ul>
 
         <div className="glide__arrows" data-glide-el="controls">
-          <button style={{marginLeft:"8px"}}
+          <button
+            style={{ marginLeft: "8px" }}
             className="glide__arrow glide__arrow--left"
             data-glide-dir="<"
           >
             prev
           </button>
-          <button style={{marginRight:"8px"}}
+          <button
+            style={{ marginRight: "8px" }}
             className="glide__arrow glide__arrow--right"
             data-glide-dir=">"
           >
