@@ -3,57 +3,57 @@ import Glide from "@glidejs/glide";
 import styles from "../glide/Glider.module.css";
 
 const imageArray = [
-
-  {id:0,pic:"https://res.cloudinary.com/dfpn73tnk/image/upload/v1660633963/Check%20folder/Tekken7_mjjl9l.jpg"},
-
-  {
-    id: 1,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660125478/Glider/Skyrim_zr1r8r.jpg",
-  },
-  {
-    id: 2,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660562656/Check%20folder/Horizen_face_otbc0h.jpg",
-  },
-  {
-    id: 3,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061169/Glider/Uncharted_k1eelx.jpg",
-  },
-  {
-    id: 4,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660633963/Check%20folder/cover-tekken_7_bqocyy.jpg",
-  },
-  {
-    id: 5,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061181/Glider/just_cause_zdksx4.jpg",
-  },
-  {
-    id: 6,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061174/Glider/Prince_of_persia_gmlijx.jpg",
-  },
-  {
-    id: 7,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061174/Glider/Tomb_raider_z6jxql.jpg",
-  },
-  {
-    id: 8,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061160/Glider/Batman_ztcgql.jpg",
-  },
-  {
-    id: 9,
-    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660123001/Glider/final-fantasy-vii-remake-cloud_ur8rwd.jpg",
-  },
-  {
-    id: 10,
+ {
+    id: 0,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061161/Glider/Ghost_of_tsushima_rubedh.jpg",
   },
   {
-    id: 11,
+    id: 1,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061161/Glider/Anthem_yvipie.jpg",
   },
   {
-    id: 12,
+    id: 2,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1657442141/biomutant-pc-game-steam-cover_oykkkg.jpg",
   },
+  {id:3,pic:"https://res.cloudinary.com/dfpn73tnk/image/upload/v1660633963/Check%20folder/Tekken7_mjjl9l.jpg"},
+
+  {
+    id: 4,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660125478/Glider/Skyrim_zr1r8r.jpg",
+  },
+  {
+    id: 5,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660562656/Check%20folder/Horizen_face_otbc0h.jpg",
+  },
+  {
+    id: 6,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061169/Glider/Uncharted_k1eelx.jpg",
+  },
+  {
+    id: 7,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660633963/Check%20folder/cover-tekken_7_bqocyy.jpg",
+  },
+  {
+    id: 8,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061181/Glider/just_cause_zdksx4.jpg",
+  },
+  {
+    id: 9,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061174/Glider/Prince_of_persia_gmlijx.jpg",
+  },
+  {
+    id: 10,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061174/Glider/Tomb_raider_z6jxql.jpg",
+  },
+  {
+    id: 11,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660061160/Glider/Batman_ztcgql.jpg",
+  },
+  {
+    id: 12,
+    pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660123001/Glider/final-fantasy-vii-remake-cloud_ur8rwd.jpg",
+  },
+ 
   {
     id: 13,
     pic: "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660562661/Check%20folder/new-horizon-forbidden-west-2022_3840x2160_dlgsi7.jpg",
