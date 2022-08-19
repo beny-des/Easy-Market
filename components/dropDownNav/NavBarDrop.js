@@ -125,7 +125,8 @@ function DropdownMenu() {
             News
           </DropdownItem></a>
 
-              <Link className="dropLinks" href="/comingSoonGames" >
+              <Link className="dropLinks" href="/comingSoonGames" 
+              style={{textDecoration:"none",color:"white"}}>
           <DropdownItem
             leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660737444/bell-alert.232x256_mzblsl.png" alt="pic" style={{width:"27px"}}/>}
           >
@@ -136,7 +137,7 @@ function DropdownMenu() {
           </DropdownItem></Link>
         
              <Link className="dropLinks" href="https://www.twitch.tv/" 
-              style={{textDecoration:"none"}}
+              style={{textDecoration:"none",color:"white"}}
              >
           <DropdownItem
             leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660737841/micro-blog.255x256_t3qnxu.png" alt="pic" style={{width:"27px"}}/>}
