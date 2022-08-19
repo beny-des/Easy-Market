@@ -5,6 +5,7 @@ import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "@glidejs/glide/src/assets/sass/glide.theme.scss";
 import FunctionsProvider from "../context/FunctionsContext";
 import { SessionProvider } from "next-auth/react";
+import Footer from "../components/footer/footer";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
  
  
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <Header />
 
         <Component {...pageProps} />
+        <Footer/>
       </FunctionsProvider>
     </SessionProvider>
   );
