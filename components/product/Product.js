@@ -78,7 +78,7 @@ const Product = ({ image, title, price, id, category, console, sale }) => {
             color="black"
             sx={{ marginTop: "5px", marginBottom: "5px", marginLeft: "15px" }}
           >
-            <b>price: </b>
+            <b>Price: </b>
             {sale === "true" ? price * 0.5 : price} $
           </Typography>
 
@@ -95,7 +95,7 @@ const Product = ({ image, title, price, id, category, console, sale }) => {
               alignItems: "center",
             }}
           >
-            <b>console:</b>
+            <b>Console:</b>
             {console.map((obj) => {
               return (
                 <div key={obj.id} style={{ marginLeft: "7px" }}>
