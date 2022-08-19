@@ -5,7 +5,7 @@ import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "@glidejs/glide/src/assets/sass/glide.theme.scss";
 import FunctionsProvider from "../context/FunctionsContext";
 import { SessionProvider } from "next-auth/react";
-import Footer from "../components/footer/footer";
+import Footer from "../components/footer/Footer";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
  
  
