@@ -136,7 +136,7 @@ function DropdownMenu() {
           </DropdownItem></Link>
         
              <Link className="dropLinks" href="https://www.twitch.tv/" 
-              style={{}}
+              style={{textDecoration:"none"}}
              >
           <DropdownItem
             leftIcon={<img src=  "https://res.cloudinary.com/dfpn73tnk/image/upload/v1660737841/micro-blog.255x256_t3qnxu.png" alt="pic" style={{width:"27px"}}/>}
